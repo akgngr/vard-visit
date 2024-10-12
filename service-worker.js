@@ -1,16 +1,22 @@
-// service-worker.js
-self.addEventListener("install", (event) => {
-  console.log("Service Worker installing.")
-})
+const CACHE_NAME = "qr-kartvizit-v1"
+const urlsToCache = [
+  "/",
+  "/index.html",
+  "/style.css",
+  "/app.js",
+  "https://unpkg.com/qrcode-generator@1.4.4/qrcode.js",
+]
 
-self.addEventListener("activate", (event) => {
-  console.log("Service Worker activated.")
+self.addEventListener("install", (event) => {
+  event.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
+  )
 })
 
 self.addEventListener("fetch", (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request)
-    })
+    caches
+      .match(event.request)
+      .then((response) => response || fetch(event.request))
   )
 })

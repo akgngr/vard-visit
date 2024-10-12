@@ -1,0 +1,71 @@
+/* style.css */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.business-card {
+  width: calc(100vh-50px);
+  max-width: calc(100vh-100px);
+  height: calc(100vh-100px);
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.profile {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  vertical-align: top;
+  margin-bottom: 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+#title {
+  margin: 5px 0 0;
+  font-size: 16px;
+  color: #666;
+}
+
+.contact-info {
+  text-align: left;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+#qr-code {
+  margin-top: auto;
+}
+
+#qr-code img {
+  max-width: 100%;
+  height: auto;
+}

@@ -1,56 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#000000" />
-    <title>Mini App</title>
-    <!-- PWA için gerekli meta etiketi -->
-    <link rel="manifest" href="/manifest.json" />
+    <title>Dikey QR Kartvizit</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <script src="https://unpkg.com/qrcode-generator@1.4.4/qrcode.js"></script>
   </head>
   <body>
-    <h1>Welcome to My Mini App</h1>
-    <p>This is a simple PWA-style app.</p>
-    <p>
-      <a href="cardvisit.vcf" download="JohnDoe.vcf"
-        >VCARD Kişiyi Rehbere Ekle</a
-      >
-    </p>
-    <p></p>
-    <script>
-      // Service worker kaydını yap
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", function () {
-          navigator.serviceWorker
-            .register("/service-worker.js")
-            .then(function (registration) {
-              console.log(
-                "Service Worker registered with scope:",
-                registration.scope
-              )
-            })
-            .catch(function (error) {
-              console.log("Service Worker registration failed:", error)
-            })
-        })
-      }
-      const vCardData = `BEGIN:VCARD
-VERSION:3.0
-FN:John Doe
-TEL;TYPE=CELL:+905555555555
-EMAIL:johndoe@example.com
-URL:http://www.johndoe.com
-END:VCARD`
-
-      const blob = new Blob([vCardData], { type: "text/vcard" })
-      const url = URL.createObjectURL(blob)
-
-      const downloadLink = document.createElement("a")
-      downloadLink.href = url
-      downloadLink.download = "JohnDoe.vcf"
-      downloadLink.textContent = "Kişiyi Rehbere Ekle"
-      document.body.appendChild(downloadLink)
-    </script>
+    <div class="business-card">
+      <div class="profile">
+        <img
+          src="yunus-lulecci.jpeg"
+          alt="Profil Fotoğrafı"
+          class="profile-image"
+        />
+        <h1 id="name">Yunus LULECI</h1>
+        <p id="title">Founded LULECCI</p>
+      </div>
+      <div class="contact-info">
+        <p><strong>Tel:</strong> <span id="phone">+49 163 9542104</span></p>
+        <p>
+          <strong>E-posta:</strong>
+          <span id="email">info@lulecci.com</span>
+        </p>
+        <p>
+          <strong>Web:</strong> <span id="website">https://lulecci.com</span>
+        </p>
+      </div>
+      <div id="qr-code"></div>
+    </div>
+    <script src="app.js"></script>
   </body>
 </html>

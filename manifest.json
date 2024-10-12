@@ -1,20 +1,14 @@
 {
-  "name": "Mini App",
-  "short_name": "MiniApp",
-  "description": "A simple mini PWA-style app.",
+  "name": "Kişisel QR Kartvizit",
+  "short_name": "QR Kartvizit",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "theme_color": "#4285f4",
   "icons": [
     {
-      "src": "icon-192x192.png",
+      "src": "icon.png",
       "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "icon-512x512.png",
-      "sizes": "512x512",
       "type": "image/png"
     }
   ]
