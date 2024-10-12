@@ -12,6 +12,12 @@
   <body>
     <h1>Welcome to My Mini App</h1>
     <p>This is a simple PWA-style app.</p>
+    <p>
+      <a href="cardvisit.vcf" download="JohnDoe.vcf"
+        >VCARD Kişiyi Rehbere Ekle</a
+      >
+    </p>
+    <p></p>
     <script>
       // Service worker kaydını yap
       if ("serviceWorker" in navigator) {
@@ -29,6 +35,22 @@
             })
         })
       }
+      const vCardData = `BEGIN:VCARD
+VERSION:3.0
+FN:John Doe
+TEL;TYPE=CELL:+905555555555
+EMAIL:johndoe@example.com
+URL:http://www.johndoe.com
+END:VCARD`
+
+      const blob = new Blob([vCardData], { type: "text/vcard" })
+      const url = URL.createObjectURL(blob)
+
+      const downloadLink = document.createElement("a")
+      downloadLink.href = url
+      downloadLink.download = "JohnDoe.vcf"
+      downloadLink.textContent = "Kişiyi Rehbere Ekle"
+      document.body.appendChild(downloadLink)
     </script>
   </body>
 </html>
