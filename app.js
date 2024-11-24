@@ -1,8 +1,8 @@
 let contactInfo = {
   name: "Yunus LULECI",
   phone: "+49 163 9542104",
-  email: "info@lulecci.com",
-  website: "https://lulecci.com",
+  email: "info@luleccihome.com",
+  website: "https://luleccihome.com",
 }
 function updateDisplay() {
   document.getElementById("name").textContent = contactInfo.name
